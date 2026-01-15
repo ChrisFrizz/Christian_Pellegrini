@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+
+.bord {
+  border: 1px;
+  color: (red);
+}
+
+nav>a{
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  color: #F3F3F3;
+}
