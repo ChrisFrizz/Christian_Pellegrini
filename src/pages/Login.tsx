@@ -11,10 +11,8 @@ export default function Login(){
     const navigate = useNavigate();
 
     function handleSubmit(e: FormEvent<HTMLFormElement>){
-        e.preventDefault(); //previene il refresh della pagina
+        e.preventDefault();
         console.log("Form inviata");
-
-
         navigate(`/dashboard`, {state:{username: username} as ILoginNavigateState});
     }
     
@@ -29,7 +27,6 @@ export default function Login(){
                     setUsername(event.target.value)}
                 }
             />
-            <p>username: {username}</p>
             <button type="submit">Login</button>
         </form>
     );

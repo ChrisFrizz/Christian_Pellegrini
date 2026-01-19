@@ -7,6 +7,7 @@ import PostList from './pages/PostList';
 import PhotoList from './pages/PhotoList';
 import ListaUtenti from './pages/ListaUtenti';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import Classes from './pages/Classes';
 
 const client = new QueryClient({
   defaultOptions: {
@@ -17,11 +18,11 @@ const client = new QueryClient({
   }
 });
 
-//<Counter/> è un tag che si autochiude perchè non ha contenuto qui
+
 function App(){
 
 
-  return( //Vuole 1 SOLO return
+  return(
     <>
 
     <QueryClientProvider client={client}>
@@ -33,6 +34,7 @@ function App(){
           <Link to='/posts'>Posts</Link>
           <Link to='/listaUtenti'>Lista Utenti</Link>
           <Link to='/listaPhoto'>Lista Photo</Link>
+          <Link to='/classes'>Classes</Link>
         </nav>
 
         <Routes>
@@ -42,6 +44,7 @@ function App(){
           <Route path='/posts' element={<PostList/>}/>
           <Route path='/listaUtenti' element={<ListaUtenti/>}/>
           <Route path='/listaPhoto' element={<PhotoList/>}/>
+          <Route path='/classes' element={<Classes/>}/>
           </Routes>
       </BrowserRouter>
 
