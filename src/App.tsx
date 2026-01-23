@@ -6,6 +6,7 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import RandomImage from './pages/RandomImage';
 import MyCollection from './pages/MyCollection';
 import PageNotFound from './pages/PageNotFound';
+import PopularTags from './pages/PopularTags';
 
 
 const client = new QueryClient({
@@ -32,6 +33,7 @@ function App(){
           <Link to='/login'>Login</Link>
           <Link to='/mycollection'>My Collection</Link>
           <Link to='/404'>404 Page</Link>
+          <Link to='/populartags'>Popular tags</Link>
         </nav>
 
         <Routes>
@@ -40,6 +42,7 @@ function App(){
           <Route path='/login' element={<Login/>}/>
           <Route path='/mycollection' element={<MyCollection/>}/>
           <Route path='/404' element={<PageNotFound/>}/>
+          <Route path='/populartags' element={<PopularTags/>}/>
           </Routes>
       </BrowserRouter>
 
