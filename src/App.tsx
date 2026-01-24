@@ -29,11 +29,12 @@ function App(){
       <BrowserRouter>
         <nav>
           <Link to='/home'>Home</Link>
+          <Link to='/populartags'>Popular tags</Link>
           <Link to='/randomImage'>Random Image</Link>
           <Link to='/login'>Login</Link>
           <Link to='/mycollection'>My Collection</Link>
           <Link to='/404'>404 Page</Link>
-          <Link to='/populartags'>Popular tags</Link>
+          
         </nav>
 
         <Routes>

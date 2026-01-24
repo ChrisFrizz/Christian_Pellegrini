@@ -36,6 +36,7 @@ h1 {
 }
 
 button {
+  display: inline-block;
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
@@ -45,9 +46,15 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  box-shadow: 0 1px #999;
+}
+button:active {
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
 }
 button:hover {
   border-color: #646cff;
+  box-shadow:0 8px 16px 0 rgba(0,0,0,0.6)
 }
 button:focus,
 button:focus-visible {
@@ -76,3 +83,9 @@ button:focus-visible {
     background: #d2a231;
     border-radius: 10px;
   }
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+
+}
