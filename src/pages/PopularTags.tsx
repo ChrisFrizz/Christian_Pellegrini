@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query"
-import type { INekosiaResponse } from "../components/INekosiaResponse";
+import type { INekosiaResponse } from "../hook/INekosiaResponse";
 import { useState } from "react";
 import LikeButton from "../components/LikeButton";
 import axios from "axios";
