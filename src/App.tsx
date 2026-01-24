@@ -7,6 +7,7 @@ import RandomImage from './pages/RandomImage';
 import MyCollection from './pages/MyCollection';
 import PageNotFound from './pages/PageNotFound';
 import PopularTags from './pages/PopularTags';
+import Post from './components/Post';
 
 
 const client = new QueryClient({
@@ -33,8 +34,8 @@ function App(){
           <Link to='/randomImage'>Random Image</Link>
           <Link to='/login'>Login</Link>
           <Link to='/mycollection'>My Collection</Link>
+          <Link to='/contribute'>Contribute</Link>
           <Link to='/404'>404 Page</Link>
-          
         </nav>
 
         <Routes>
@@ -44,6 +45,7 @@ function App(){
           <Route path='/mycollection' element={<MyCollection/>}/>
           <Route path='/404' element={<PageNotFound/>}/>
           <Route path='/populartags' element={<PopularTags/>}/>
+          <Route path='/contribute' element={<Post/>}/>
           </Routes>
       </BrowserRouter>
 

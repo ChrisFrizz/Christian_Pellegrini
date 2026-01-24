@@ -1,5 +1,6 @@
 import background from '../background/background.jpg'
 
+
 export default function Home() {
     const containerStyle: React.CSSProperties = {
         position: 'absolute',

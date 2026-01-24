@@ -38,16 +38,22 @@ export default function PopularTags() {
             <h1>Here are the most popular tags:</h1>
 
             <div className="btn-group">
-                <button style={{ marginRight: '10px', marginTop: '10px'  }}
+                <button style={{ marginRight: '10px', marginTop: '10px' }}
 
                     onClick={() => {
-                        setEnabled(true);
-                        if (data) {
-                            setImageURLCompressed(data.image.compressed.url);
-                            setImageURL(data.image.original.url);
-                            setHighQuality(false);
+
+                        try {
+                            setEnabled(true);
+                            if (data) {
+                                setImageURLCompressed(data.image.compressed.url);
+                                setImageURL(data.image.original.url);
+                                setHighQuality(false);
+                            }
+                            setEnabled(false);
+                        } catch (err: any) {
+                            console.log(err.message);
                         }
-                        setEnabled(false);
+
                     }}>
                     catgirl
                 </button>
@@ -106,14 +112,6 @@ export default function PopularTags() {
                         fetchImage('https://api.nekosia.cat/api/v1/images/cute')
                     }}>
                     cute
-                </button>
-
-                <button
-                    style={{ marginRight: '10px', marginTop: '10px' }}
-                    onClick={() => {
-                        fetchImage('https://api.nekosia.cat/api/v1/images/blue-archive')
-                    }}>
-                    blue archive
                 </button>
 
                 <button
