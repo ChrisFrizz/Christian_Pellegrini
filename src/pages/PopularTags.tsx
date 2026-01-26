@@ -1,37 +1,66 @@
-import { useQuery } from "@tanstack/react-query"
-import type { INekosiaResponse } from "../hook/INekosiaResponse";
+//import { useQuery } from "@tanstack/react-query"
+//import type { INekosiaResponse } from "../hook/INekosiaResponse";
+//import type { INekoImage } from "../hook/TNekoImageList";
 import { useState } from "react";
 import LikeButton from "../components/LikeButton";
 import axios from "axios";
 
+
 export default function PopularTags() {
 
-    const [enabled, setEnabled] = useState(false);
     const [imageURL, setImageURL] = useState("");
     const [imageURLCompressed, setImageURLCompressed] = useState("");
     const [highQuality, setHighQuality] = useState(false);
+    const [loading, setLoading] = useState(false);
+    const [err, setErr] = useState<string | null>(null);
 
-    const { data, isLoading, error } = useQuery<INekosiaResponse>({
-        enabled: enabled,
+    /*const { data, isLoading, error } = useQuery<INekosiaResponse>({
         queryKey: ['images'],
-        queryFn: async () => await fetch('https://api.nekosia.cat/api/v1/images/catgirl')
+        queryFn: async () => await fetch('https://api.nekosia.cat/api/v1/images/cute?count=1&additionalTags=white-hair,uniform&blacklistedTags=short-hair,sad,maid')
             .then(data => data.json())
-    });
+    });*/
+
 
     async function fetchImage(value: string) {
+        setLoading(true);
+        setErr(null);
+
         try {
             const res = await axios.get(value);
             setImageURL(res.data.image.original.url);
             setImageURLCompressed(res.data.image.compressed.url);
             setHighQuality(false);
-            console.log(setImageURLCompressed);
-        } catch (err) {
-            console.error("Error fetching image:", err);
+            console.log(imageURLCompressed);
+        } catch (err: any) {
+            console.error("Error fetching image:", err.message);
+        } finally {
+            setLoading(false);
         }
     }
 
-    if (isLoading) return <h3>Caricamento in corso</h3>
-    if (error) return <h3>Si è verificato un errore: {error.message}</h3>
+    if (loading) return <h3>Caricamento in corso</h3>
+    if (err) return <h3>Si è verificato un errore: {err}</h3>
+
+
+    /*type APIAlias = string;
+
+    async function APIRequest<T>(url: APIAlias): Promise<T> {
+        const response = await axios.get<T>(url);
+        return response.data;
+    }
+
+    async function fetchImageAlias(value: APIAlias) {
+        try {
+            const data = await APIRequest<INekoImage>(value);
+            setImageURL(data.image.original.url);
+            setImageURLCompressed(data.image.compressed.url);
+            setHighQuality(false);
+            console.log(imageURLCompressed);
+            
+        } catch (err: any) {
+            console.error("Something went wrong:", err.message);
+        }
+    }*/
 
     return (
         <>
@@ -41,19 +70,7 @@ export default function PopularTags() {
                 <button style={{ marginRight: '10px', marginTop: '10px' }}
 
                     onClick={() => {
-
-                        try {
-                            setEnabled(true);
-                            if (data) {
-                                setImageURLCompressed(data.image.compressed.url);
-                                setImageURL(data.image.original.url);
-                                setHighQuality(false);
-                            }
-                            setEnabled(false);
-                        } catch (err: any) {
-                            console.log(err.message);
-                        }
-
+                        fetchImage('https://api.nekosia.cat/api/v1/images/catgirl')
                     }}>
                     catgirl
                 </button>
@@ -306,6 +323,20 @@ export default function PopularTags() {
             )}
             {imageURL && highQuality && (
                 <>
+                    <div style={{ height: '20px', marginBottom: '30px' }}>
+                        <button style={{
+                            marginTop: '20px',
+                            marginBottom: '20px',
+                            padding: '5px 20px',
+                            fontSize: '16px',
+                        }}
+                            onClick={() => {
+                                setHighQuality(false);
+                                console.log(imageURLCompressed);
+                            }}>
+                            Lower Quality?
+                        </button>
+                    </div>
                     <img
                         src={imageURL}
                         style={{ marginTop: '20px', maxWidth: '100%', maxHeight: '600px', borderRadius: '10px' }}

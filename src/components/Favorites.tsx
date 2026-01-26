@@ -1,5 +1,5 @@
 export const getFavorites = (): string[] => {
-  const data = localStorage.getItem('nekosia_favorites');
+  const data = localStorage.getItem('favoriteImages');
   return data ? JSON.parse(data) : [];
 };
 

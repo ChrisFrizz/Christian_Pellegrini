@@ -6,7 +6,6 @@ export default function RandomImage() {
 
     const [imageURL, setImageURL] = useState("");
     const [imageURLCompressed, setImageURLCompressed] = useState("");
-    const [category, setCategory] = useState("");
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
     const [highQuality, setHighQuality] = useState(false);
@@ -19,12 +18,11 @@ export default function RandomImage() {
             const res = await axios.get('https://api.nekosia.cat/api/v1/images/random');
             setImageURL(res.data.image.original.url);
             setImageURLCompressed(res.data.image.compressed.url);
-            setCategory(res.data.category);
             setHighQuality(false);
             console.log(setImageURLCompressed);
         } catch (err: any) {
             setError(err.message);
-            console.error("Error fetching image:", err);
+            console.error("Error fetching image:", err.message);
         } finally {
             setLoading(false);
         }
@@ -35,65 +33,76 @@ export default function RandomImage() {
 
     return (
         <>
-            <div style={{ height: '20px', marginBottom: '30px'}}>
-                <button 
-                style={{ 
-                    marginTop: '20px',
-                    marginBottom: '20px',
-                    padding: '5px 20px', 
-                    fontSize: '16px',
-                }}
-                onClick={() => {
-                    fetchNekoImage();
-                    console.log(imageURLCompressed);
-                }}
+            <div style={{ height: '20px', marginBottom: '30px' }}>
+                <button
+                    style={{
+                        marginTop: '20px',
+                        marginBottom: '20px',
+                        padding: '5px 20px',
+                        fontSize: '16px',
+                    }}
+                    onClick={() => {
+                        fetchNekoImage();
+                        console.log(imageURLCompressed);
+                    }}
                 >
-            Random Image
-            </button>
-            </div>
-            
-            {imageURLCompressed && imageURLCompressed.length === 0 && <p>Nessuna immagine con questo URL</p>}
-            {!loading && imageURLCompressed && !highQuality && (
-                <>
-                <div style={{ height: '20px', marginBottom: '30px' }}>
-                <button style={{ 
-                    marginTop: '20px',
-                    marginBottom: '20px',
-                    padding: '5px 20px', 
-                    fontSize: '16px',
-                }}
-                onClick={()=>{
-                    setHighQuality(true)
-                    console.log(imageURL);
-                    }}>
-                High Quality?
+                    Random Image
                 </button>
             </div>
-                <img
-                    src={imageURLCompressed}
-                    alt={category}
-                    style={{ marginTop: '20px', maxWidth: '100%', maxHeight: '600px', borderRadius: '10px' }} 
+
+            {!loading && imageURLCompressed && !highQuality && (
+                <>
+                    <div style={{ height: '20px', marginBottom: '30px' }}>
+                        <button style={{
+                            marginTop: '20px',
+                            marginBottom: '20px',
+                            padding: '5px 20px',
+                            fontSize: '16px',
+                        }}
+                            onClick={() => {
+                                setHighQuality(true)
+                                console.log(imageURL);
+                            }}>
+                            High Quality?
+                        </button>
+                    </div>
+                    <img
+                        src={imageURLCompressed}
+                        style={{ marginTop: '20px', maxWidth: '100%', maxHeight: '600px', borderRadius: '10px' }}
                     />
-                <div style={{ marginTop: '10px' }}>
-                    <LikeButton imageUrl={imageURLCompressed} />
-                </div>
-                
+                    <div style={{ marginTop: '10px' }}>
+                        <LikeButton imageUrl={imageURLCompressed} />
+                    </div>
+
                 </>
             )}
             {!loading && imageURL && highQuality && (
                 <>
+                    <div style={{ height: '20px', marginBottom: '30px' }}>
+                        <button style={{
+                            marginTop: '20px',
+                            marginBottom: '20px',
+                            padding: '5px 20px',
+                            fontSize: '16px',
+                        }}
+                            onClick={() => {
+                                setHighQuality(false);
+                                console.log(imageURLCompressed);
+                            }}>
+                            Lower Quality?
+                        </button>
+                    </div>
 
-                <img
-                    src={imageURL}
-                    alt={category}
-                    style={{ marginTop: '20px', maxWidth: '100%', maxHeight: '600px', borderRadius: '10px' }}
-                />
+                    <img
+                        src={imageURL}
+                        style={{ marginTop: '20px', maxWidth: '100%', maxHeight: '600px', borderRadius: '10px' }}
+                    />
 
-                <div style={{ marginTop: '10px' }}>
-                    <LikeButton imageUrl={imageURLCompressed} />
-                </div>
+                    <div style={{ marginTop: '10px' }}>
+                        <LikeButton imageUrl={imageURLCompressed} />
+                    </div>
                 </>
-            )}       
+            )}
         </>
     );
 }

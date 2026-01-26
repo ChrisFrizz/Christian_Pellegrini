@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { getFavorites, toggleFavorite } from './Favorites';
 
-interface Props {
+interface URL {
   imageUrl: string;
 }
 
-export default function LikeButton({ imageUrl }: Props) {
+export default function LikeButton({ imageUrl }: URL) {
   const [isLiked, setIsLiked] = useState(false);
 
   useEffect(() => {
@@ -24,6 +24,6 @@ export default function LikeButton({ imageUrl }: Props) {
     >
       {isLiked ? 'Liked' : 'Like'}
     </button>
-    
+
   );
 };

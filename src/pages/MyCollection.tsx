@@ -25,7 +25,7 @@ export default function FavoritesPage() {
       <h2>{username}'s Favorites</h2>
 
       {savedImages.length === 0 ? (
-        <p className="text-gray-500">You haven't liked any images yet!</p>
+        <p>You haven't liked any images yet!</p>
       ) : (
         <div>
           {savedImages.map((url) => (
@@ -33,18 +33,13 @@ export default function FavoritesPage() {
               <img
                 src={url}
                 alt="Favorite"
-                style={{ marginTop: '20px', maxWidth: '100%', maxHeight: '600px', borderRadius: '10px' }}
+                style={{ 
+                  marginTop: '20px', 
+                  maxWidth: '100%', 
+                  maxHeight: '600px', 
+                  borderRadius: '10px' 
+                }}
               />
-              <div>
-                <a
-                  href={url}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="text-white underline"
-                >
-                  View Full
-                </a>
-              </div>
             </div>
           ))}
         </div>
