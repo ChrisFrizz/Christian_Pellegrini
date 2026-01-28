@@ -9,6 +9,8 @@ quote by r/eyebleach.
 
 It serves as a school study project in modern frontend practices, specifically handling asynchronous API data, local persistence, and stateful navigation.
 
+-----
+
 ### Installation and Execution Instructions
 
 Dowload the Repository
@@ -17,7 +19,11 @@ Dowload the Repository
 
 ● Extract the ZIP
 
+-----
+
 OR
+
+-----
 
 Clone the Repository
 
@@ -25,11 +31,11 @@ Clone the Repository
 
     git clone https://github.com/ChrisFrizz/Anime_Eyebleach.git
 
+
 Go in the downloaded repository
 
     cd Anime_Eyebleach
 
-Install Dependencies
     
 Ensure you have Node.js installed, then run:
 
@@ -41,9 +47,13 @@ Launch Development Server
 
 The application will load a localHost to then click on.
 
+-----
+
 ### Description of the APIs Used
 
 The project utilizes the [Nekosia API](https://nekosia.cat/) (v1), a RESTful service that provides structured JSON data for anime images.
+
+-----
 
 Hi there! Are you looking for the perfect API to enhance your project with adorable anime images? Or maybe you're interested in Anime Booru? You're in the right place!
 
@@ -67,15 +77,21 @@ Nekosia API is completely free and available without registration, making it the
 
 #anime #animeapi #api #cute #catgirl #catgirls #animebooru #booru #neko #nekos #uwu #owo #cuteimages #cuteanimegirls
 
+-----
+
 Also the project utilizes JSONPlaceholder to simulate POST calls.
 
 https://jsonplaceholder.typicode.com/
+
+-----
 
 ### Credentials / Mocks (if applicable)
 
 ● Authentication: The app currently uses a "Soft Login" system. No backend credentials are required; the Login.tsx page captures a username and passes it through the React Router state.
 
 ● Mock Endpoint: The Post.tsx page utilizes https://jsonplaceholder.typicode.com/posts to simulate the submission of new community images, providing a safe environment to test POST request logic.
+
+-----
 
 ### Project Structure
 
@@ -90,23 +106,29 @@ The project follows a component-based architecture organized by responsibility:
 
     /interface: API response interface (INekosiaResponse.tsx)
 
+-----
+
 ### List of Completed Features
 
-#739 Tag-Based Filtering: Users can load an image by clicking on specific tag button.
+[x] Tag-Based Filtering: Users can load an image by clicking on specific tag button.
 
-#739 Random Discovery: Automatic fetching of a new image upon loading the RandomImage page.
+[x] Random Discovery: Automatic fetching of a new image upon loading the RandomImage page.
 
-#739 Quality Switching: Real-time toggling between high-definition (original) and optimized (compressed) images to save bandwidth.
+[x] Quality Switching: Real-time toggling between high-definition (original) and optimized (compressed) images to save bandwidth.
 
-#739 Favorites System: Persistent image viewing using localStorage that allows users to "Like" images and view them later in myCollection.
+[x] Favorites System: Persistent image viewing using localStorage that allows users to "Like" images and view them later in myCollection.
 
-#739 Dynamic Routing: Implementation of "protected-style navigation" where the myCollection page requires a username from the Login page.
+[x] Dynamic Routing: Implementation of "protected-style navigation" where the myCollection page requires a username from the Login page.
 
-#739 Optimized Fetching: Integration of tan-stack-query to handle caching and prevent redundant API calls when the window is minimized.
+[x] Optimized Fetching: Integration of tan-stack-query to handle caching and prevent redundant API calls when the window is minimized.
+
+-----
 
 ### Known issues
 
-[] The Login state doesn't persist after changing upon change of route, so every time the user enters myCollection it redirects them to the Login page.
+[ ] The Login state doesn't persist after changing upon change of route, so every time the user enters myCollection it redirects them to the Login page.
+
+-----
 
 ### About me: 
 
