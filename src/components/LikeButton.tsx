@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { getFavorites, toggleFavorite } from './Favorites';
+import { getFavorites, toggleFavorite } from '../logic/Favorites';
 
 interface URL {
   imageUrl: string;

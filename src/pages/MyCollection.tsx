@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { getFavorites } from '../components/Favorites';
+import { getFavorites } from '../logic/Favorites';
 import { useNavigate, useLocation, type Location } from 'react-router-dom';
 import type { ILoginNavigateState } from './Login';
 

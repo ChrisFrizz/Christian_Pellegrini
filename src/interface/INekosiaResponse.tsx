@@ -2,7 +2,6 @@
  * @interface di risposta dell'API
  */
 
-
 export interface INekosiaResponse {
   success: boolean;
   status: number;
