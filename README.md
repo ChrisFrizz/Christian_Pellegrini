@@ -13,24 +13,10 @@ It serves as a school study project in modern frontend practices, specifically h
 
 ### Installation and Execution Instructions
 
-1) Dowload the Repository
-
-● Download the ZIP. file by clicking on <>Code
-
-● Extract the ZIP
-
------
-
-OR
-
------
-
-1) Clone the Repository
-
-● Go into your command prompt/Linux terminal and digit
-```
-    git clone https://github.com/ChrisFrizz/Anime_Eyebleach.git
-```
+| 1) Dowload the Repository  | 1) Clone the Repository |
+| ------------- | ------------- |
+| Download the ZIP. file by clicking on <>Code  | Go into your command prompt/Linux terminal and digit  |
+| Extract the ZIP  | `git clone https://github.com/ChrisFrizz/Anime_Eyebleach.git`  |
 
 2) Go in the downloaded repository
 ```
