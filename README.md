@@ -1,4 +1,5 @@
 Anime Eyebleach
+
 Project Description and Purpose
 
 Anime Eyebleach is a React-typescript based web single-page-application designed to show you some beautiful anime inspired images to brighten up after a long day, maybe even find some new artists online that catch your eye and would like your support. 
@@ -8,12 +9,14 @@ It serves as a school study project in modern frontend practices, specifically h
 Installation and Execution Instructions
 
     Clone the Repository
+    
     Bash
 
-    git clone https://github.com/your-username/anime-eyebleach.git
-    cd anime-eyebleach
+    git clone https://github.com/your-username/Anime-Eyebleach.git
+    cd Anime-Eyebleach
 
-    Install Dependencies 
+    Install Dependencies
+    
     Ensure you have Node.js installed, then run:
     Bash
 
